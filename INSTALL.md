@@ -29,7 +29,7 @@ Instale para o agente que você é. Na dúvida, pergunte ao usuário em qual age
 
 `~/.agents/skills/` é a pasta pessoal que Codex e Cursor leem direto.
 
-Se `~/.agents/skills/<nome>` já existir, compare com `diff -r` e pergunte ao usuário antes de substituir.
+Se `~/.agents/skills/<nome>` já existir, compare com `diff -r /tmp/luizfbm-skills/skills/<nome> ~/.agents/skills/<nome>`. Igual: vá para a verificação. Diferente: pergunte ao usuário e, com o sim dele, apague a pasta antiga antes de copiar, porque copiar por cima cria `<nome>/<nome>` dentro dela.
 
 ```bash
 mkdir -p ~/.agents/skills
@@ -42,7 +42,7 @@ Para instalar só num projeto, use `.agents/skills/<nome>` na raiz do projeto no
 
 ## 4. Claude Code: crie o link
 
-O Claude Code lê `~/.claude/skills/`. O link aponta para a cópia do passo 3, assim as duas pastas nunca divergem.
+O Claude Code lê `~/.claude/skills/`. O link aponta para a cópia do passo 3, assim as duas pastas nunca divergem. Se `~/.claude/skills/<nome>` já existir, vá para a verificação.
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -84,7 +84,13 @@ A tabela de skills do `README.md` diz o que mandar junto (a `cupons` espera o li
 
 ## Alternativa: instalador `skills`
 
-Quem tem Node pode usar `npx skills add Luizfbm/skills`. As opções mudam entre versões: confira com `npx skills --help` antes de rodar.
+Quem tem Node chega ao mesmo resultado dos passos 3 e 4 com um comando:
+
+```bash
+npx skills add Luizfbm/skills --skill <nome> -g -a claude-code codex cursor -y
+```
+
+Conferido na versão 1.9.0 do `skills`, em 22/11/2026. Se o comando recusar uma opção, leia `npx skills --help`.
 
 ## Desinstalar
 

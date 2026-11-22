@@ -15,18 +15,18 @@ Trabalhe só lendo: as páginas e os dados que elas carregam. Login, carrinho e 
 1. **Produto.** Abra o link e anote: loja, nome, marca, a trilha de categorias inteira, vendedor (a própria loja ou um parceiro), preço à vista, preço parcelado, e todo cupom que a página exibir, com código ou como botão de ativar. Pronto quando cada campo tem valor ou "não exibido".
 2. **Loja.** Ache a página de cupons da loja: pelo [`LOJAS.md`](LOJAS.md) se a loja estiver lá, senão pelo menu, rodapé ou busca do site. Liste os cupons ativos, os encerrados e os que ainda vão começar; código que aparece em mais de uma linha vale pela linha cujo período inclui hoje. Abra as condições e a listagem de produtos de todo cupom ativo cujo alvo é o produto, a categoria ou a marca dele, ou é genérico ("produtos selecionados", "todo o site"), e procure o produto nela. Pronto quando cada cupom ativo da loja está marcado: "cobre" (o produto está na listagem), "não cobre" (listagem lida sem o produto, cupom que aponta para outro produto, ou condição que exclui o produto) ou "sem relação" (o título nomeia outra categoria ou marca).
 3. **Agregadores.** Leia toda fonte da tabela [Fontes](#fontes) e liste cada cupom que ela traz para a loja, com os sinais ao lado. Pronto quando toda fonte está lida, lida em parte ou anotada como inacessível.
-4. **Triagem.** Mande direto para o passo 5 o candidato anunciado como "todo o site" ou para a categoria do produto. Dos demais, descarte sem abrir regras o que cai em um destes: encerrado, vencido ou ainda por começar na loja; validade vencida; de outra loja; título de categoria ou marca sem relação com o produto; rótulo sem código vindo de agregador ("ative no link", "cupom no link"); fora da loja e com menos de dois **sinais frescos**. Pronto quando cada candidato está descartado com o motivo ou segue para o passo 5.
+4. **Triagem.** Descarte sem abrir regras o candidato que cai em um destes: encerrado, vencido ou ainda por começar na loja; validade vencida; de outra loja; título de categoria ou marca sem relação com o produto; rótulo sem código vindo de agregador ("ative no link", "cupom no link"); fora da loja e com menos de dois **sinais frescos**. Esse último corte poupa o candidato anunciado como "todo o site" ou para a categoria do produto: ele segue para o passo 5 com qualquer número de sinais. Pronto quando cada candidato está descartado com o motivo ou segue para o passo 5.
 5. **Regras.** Para cada candidato que sobrou, leia a regra na loja: siga o link do cupom no agregador até a página da promoção, ou ache-a pela página de cupons da loja. Compare com o produto: listagem de itens, categoria e marca, vendedor, valor mínimo, forma de pagamento, canal (app ou site), primeira compra, assinatura, cartão exigido. Pronto quando cada um está marcado "cabe", "cabe sob condição" ou "não cabe", com a página que mostrou isso.
 6. **Veredito.** Dê a cada candidato um dos três [vereditos](#vereditos), com a prova escrita. Pronto quando todo candidato tem veredito e prova.
 7. **Entrega.** Responda no formato de [Entrega](#entrega).
 
 ## Vereditos
 
-- **Confirmado**: a própria loja liga hoje o cupom a este produto. Vale o cupom na página do produto, no card dele numa listagem, ou na página de cupons da loja apontando para uma listagem que contém o produto.
+- **Confirmado**: a própria loja liga hoje o cupom a este produto. Vale o código exibido na página do produto, o código impresso no card dele numa listagem, ou o cupom ativo na página de cupons da loja apontando para uma listagem que contém o produto.
 - **Provável**: a regra lida na loja cabe no produto e há dois sinais frescos vindos de fontes diferentes.
 - **Descartado**: todo o resto.
 
-A loja prevalece sobre o agregador, para confirmar e para descartar: cupom que a loja dá como encerrado está descartado, mesmo com selo de "usado hoje" em outro site.
+A loja prevalece sobre o agregador, para confirmar e para descartar: cupom que a loja dá como encerrado ou ainda por começar está descartado, mesmo com selo de "usado hoje" em outro site.
 
 Um **sinal fresco** é um destes, lido hoje:
 
@@ -48,7 +48,7 @@ O `<loja>` é o nome da loja em minúsculas (`kabum`, `amazon`). Endereço que f
 |---|---|---|---|
 | Cuponomia | `cuponomia.com.br/desconto/<loja>` | Código em texto, "Verificado N dias atrás", "N usados hoje", lista de expirados. O botão do cupom leva à página da promoção na loja | 22/11/2026 |
 | Promobit | `promobit.com.br/cupons/loja/<loja>/` | Nos dados embutidos da página (JSON `__NEXT_DATA__`): `couponCode`, `couponUntil` (validade com ano), `couponPublished`, `couponVerified`, `storeDomain`. Cupons presos a uma oferta de produto ficam em outro bloco, `offerCoupon` dentro das ofertas. O texto visível omite o ano e esconde o código; quem só alcança o texto visível anota "lida em parte". A lista traz cupons de outras lojas: filtre por `storeDomain` | 22/11/2026 |
-| Méliuz | `meliuz.com.br/desconto/cupom-<loja>` | Código em texto e uma regra resumida. Muitos itens são rótulos sem código | 22/11/2026 |
+| Méliuz | `meliuz.com.br/desconto/cupom-<loja>` | Código em texto; a regra resumida abre no "Regras" de cada item. Nenhum sinal fresco por cupom: a data no topo é da página inteira | 22/11/2026 |
 | Pelando | `pelando.com.br/cupons-de-descontos/<loja>`, que existe só para parte das lojas; nas demais, busca `site:pelando.com.br cupom <loja>` | Posts com data relativa, marca de expirado e comentários dizendo se funcionou | 22/11/2026 |
 | Achados | Busca `cupom <produto> <loja> <mês> <ano>` (Tecnoblog Achados, TecMundo) | Matéria datada com o cupom e o preço; "Oferta encerrada" quando acabou. O Tecnoblog recusa leitura simples de página | 22/11/2026 |
 
