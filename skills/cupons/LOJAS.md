@@ -6,9 +6,9 @@ Cada entrada traz a data em que foi conferida. Página que mudou desde então: t
 
 ## KaBuM! (`kabum.com.br`) — conferido em 22/11/2026
 
-- **Página de cupons:** `kabum.com.br/hotsite/cupons`, o destino do item "Cupons" do menu. Lista código, desconto, validade, "Condições" de cada cupom e uma seção "Cupons Encerrados". Os cupons chegam por script, de uma planilha que a página carrega: a leitura simples devolve só as perguntas frequentes, então leia a página renderizada ou a planilha. Encerrado há mais de 7 dias some da página.
+- **Página de cupons:** `kabum.com.br/hotsite/cupons`, o destino do item "Cupons" do menu. Lista código, desconto, validade, "Condições" de cada cupom e uma seção "Cupons Encerrados". Os cupons chegam por script, de uma planilha que a página carrega: a leitura simples devolve só as perguntas frequentes, então leia a página renderizada ou a planilha. Encerrado há mais de 7 dias some da página, e cupom com início no futuro aparece como "em breve".
 - **Listagem de cada cupom:** o botão "Ver ofertas" leva a `kabum.com.br/promocao/<slug>` ou a um produto único. O slug nem sempre é o código (`CP1CASANINJA10` para `CASANINJA10`): use o link do botão. Para um código ausente da página de cupons, tente `<código>`, `CP1<código>`, `CP3<código>` e `1P<código>`. A listagem pagina com `?page_number=N&page_size=100`, e o total de itens vem nos dados da página.
-- **Armadilhas:** `kabum.com.br/cupons` responde sem cupons, só com uma vitrine de lançamentos. Uma `/promocao/<slug>` inexistente responde com listagem vazia, sem erro.
+- **Armadilhas:** `kabum.com.br/cupons` responde sem cupons, só com uma vitrine de lançamentos. Uma `/promocao/<slug>` inexistente responde sem erro e sem itens.
 - **Onde o cupom entra:** o campo de cupom aparece depois do login, fora do carrinho anônimo.
 - **Preço:** o à vista é o do Pix; o parcelado é outro valor, maior. O card da listagem ignora a oferta em vigor: use o preço da página do produto.
 - **Limite:** um cupom por compra.
