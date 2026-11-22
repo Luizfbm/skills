@@ -1,0 +1,5 @@
+interface:
+  display_name: "Cupons"
+  short_description: "Cupons de desconto com prova, a partir do link do produto"
+policy:
+  allow_implicit_invocation: false
